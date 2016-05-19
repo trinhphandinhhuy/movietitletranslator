@@ -5,7 +5,7 @@ exports.list = function (req, res) {
     Movie.findOneRandom(function (error, movie) {
         nmovie(movie.title, function (error, data) {
             //console.log(movieInfo);
-            res.render('index', {
+            res.render('index1', {
                 title: 'Movie - Random',
                 movie: movie,
                 Plot: data.Plot,

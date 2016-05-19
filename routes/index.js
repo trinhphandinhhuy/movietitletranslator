@@ -4,7 +4,11 @@ var movieController = require('../controllers/movieController');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  //res.render('index', { title: 'Express' });
+  //res.render('index1', { title: 'Express' });
+  return movieController.list(req, res);
+});
+
+router.post('/', function(req, res, next) {
   return movieController.list(req, res);
 });
 
