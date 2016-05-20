@@ -1,4 +1,5 @@
 var Movie = require('../model/movieModel');
+var User = require('../model/userModel');
 var nmovie = require('node-movie');
 
 exports.list = function (req, res) {
@@ -15,20 +16,28 @@ exports.list = function (req, res) {
     });
 };
 
-exports.addMovie = function (req, res) {
-    res.render('create', { title: 'Movie - Add' });
+exports.renderDashboard = function (req, res) {
+    Movie.find(function (error, movies) {
+       if (error) { console.log('There is an error rendering movie list'); }
+       res.render('dashboard', {
+           title: 'Dashboard',
+           movies : movies
+       })
+    });
 };
 
 
-exports.create = function (req, res) {
-    var entry = new Movie({
-        title: req.body.title,
-        translation: req.body.translation,
+
+exports.createUser = function (req, res) {
+    var entry = new User({
+        username: 'admin',
+        password: 'lanvadiep',
     });
 
     entry.save(function (error) {
         if (error) { console.log('There is an error saving'); }
-        console.log('The movie is saved');
+        console.log('The user is saved');
         res.redirect('/');
     });
 };
+

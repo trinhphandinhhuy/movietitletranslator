@@ -11,13 +11,22 @@ router.get('/', function(req, res, next) {
 router.post('/', function(req, res, next) {
   return movieController.list(req, res);
 });
-
+/*
 router.get('/addmovie', function(req, res, next) {
   return movieController.addMovie(req, res);
 });
 
 router.post('/addmovie', function(req, res, next) {
   return movieController.create(req, res);
+});*/
+
+router.get('/dashboard', function(req, res, next) {
+  if(!req.isAuthenticated()){
+        res.redirect('/login');
+    } else {
+      return movieController.renderDashboard(req, res);
+    }
+     
 });
 
 

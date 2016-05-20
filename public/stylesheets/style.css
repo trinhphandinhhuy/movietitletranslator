@@ -54,6 +54,10 @@ src: url("../Cousine-Bold.ttf") format("opentype");
 .bk-list li .bk-book.bk-bookdefault:hover {
 	-webkit-transform: rotate3d(0,1,0,25deg);
 	transform: rotate3d(0,1,0,25deg);
+	cursor: pointer;
+}
+.bk-list li .bk-book.bk-viewback:hover {
+	cursor: pointer;
 }
 
 .bk-list li .bk-book > div,
@@ -156,7 +160,7 @@ src: url("../Cousine-Bold.ttf") format("opentype");
 .button {
 	border: none;
 	font-family: inherit;
-	font-size: inherit;
+	font-family: Cousine-Bold;
 	color: inherit;
 	background: none;
 	cursor: pointer;
@@ -245,6 +249,9 @@ src: url("../Cousine-Bold.ttf") format("opentype");
 .book-1 .bk-cover {
 	background-position: 10px 40px;
 }
+.book-1 .bk-cover img{
+	width: 100%;
+}
 
 .book-1 .bk-cover h2 {
 	position: absolute;
@@ -288,10 +295,12 @@ src: url("../Cousine-Bold.ttf") format("opentype");
 
 .book-1 .bk-back p {
 	color: #fff;
-	font-size: 18px;
+	font-size: 16px;
 	padding: 40px;
 	text-align: center;
 	font-weight: 700;
+	font-family: Cousine-Bold;
+	overflow: hidden;
 }
 
 
@@ -309,4 +318,31 @@ src: url("../Cousine-Bold.ttf") format("opentype");
 .no-csstransforms3d .bk-info button,
 .no-js .bk-info button {
 	display: none;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+body {
+  /* Margin bottom by footer height */
+  margin-bottom: 60px;
+}
+.footer {
+  border-top: 3px solid #000;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 60px;
+  font-family: Cousine-Bold;
+}
+.footer p {
+	margin-top: 15px;
+}
+
+@media only screen and (max-width : 480px) {
+  .footer, .github-corner {
+	  display: none;
+  }
 }

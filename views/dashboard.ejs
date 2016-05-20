@@ -25,19 +25,28 @@
     
     <div class="container">
     <div class="row">
-        <div class="jumbotron">
-            <form action="/admin/movies/create" method="post">
-                <div class="input-group input-group-lg">
-                    <input type="text" name="title" placeholder="Movie title" class="form-control">
-                </div>
-                <br>
-                <div class="input-group input-group-lg">
-                    <input type="text" name="translation" placeholder="Translation of the movie" class="form-control">
-                </div>
-                <br>
-                <button type="submit" class="btn btn-primary">Add</button>
-            </form>
-        </div>
+        <a href="/admin/movies/create" class="btn btn-primary">Create new</a>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Translation</th>
+                    <th></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <% movies.forEach(function(movie){ %>
+                    <tr>
+                        <td><%= movie.title %></td>
+                        <td><%= movie.translation %></td>
+                        <td><a href="/admin/delete/<%= movie._id %>"><span class="glyphicon glyphicon-remove"></span></a></td>
+                        <td><a href="/admin/edit/<%= movie._id %>"><span class="glyphicon glyphicon-pencil"></span></a></td>
+                    </tr>
+                <% }); %>
+            </tbody>
+
+        </table>
     </div>
 </div>
     <!-- /container -->
