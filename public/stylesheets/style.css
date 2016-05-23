@@ -346,3 +346,45 @@ body {
 	  display: none;
   }
 }
+
+@media only screen and (max-width: 1366px) {
+	.bk-list li .bk-front,
+	.bk-list li .bk-back,
+	.bk-list li .bk-front > div {
+	width: 250px;
+	height: 400px;
+}
+
+.bk-list li {
+	position: relative;
+	width: 250px;	
+	z-index: 1;
+	margin-left: auto;
+  margin-right: auto;
+	-webkit-perspective: 1800px;
+	perspective: 1800px;
+}
+
+.bk-list li .bk-top,
+.bk-list li .bk-bottom {
+	width: 250px;
+	height: 40px;
+	top: -15px;
+	-webkit-backface-visibility: hidden;
+	backface-visibility: hidden;
+}
+
+.bk-list li .bk-right {
+	height: 400px;
+	-webkit-transform: rotate3d(0,1,0,90deg) translate3d(0,0,250px);
+	-moz-transform: rotate3d(0,1,0,90deg) translate3d(0,0,250px);
+	transform: rotate3d(0,1,0,90deg) translate3d(0,0,250px);
+	-webkit-backface-visibility: hidden;
+	backface-visibility: hidden;
+}
+
+.bk-list li .bk-left {
+	height: 400px;
+}
+
+}
