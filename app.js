@@ -15,7 +15,9 @@ var routes = require('./routes/index');
 var users = require('./routes/users');
 
 var app = express();
-mongoose.connect('mongodb://huytrinh:huytrinh@ds011482.mlab.com:11482/vnmesetitlemoviedb')
+
+var dbUrl = require('./config/config');
+mongoose.connect(dbUrl);
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
