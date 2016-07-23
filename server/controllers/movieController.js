@@ -29,6 +29,73 @@ exports.list = function (req, res) {
     });
 };
 
+exports.one = function (req, res) {
+    console.log();
+    Movie.findOne().skip().sort({created_at : -1}).exec(function (error, movie) {
+        if(error) return console.log(error);
+       nmovie(movie.title, function (error, data) {
+
+            if(error) return console.log('The error 1 is: ' +error);
+            MovieDB.movieInfo({ id: data.imdbID }, function (err, result) {
+                if(err) console.log('The error 2 is: ' +error);
+                var poster;
+                if (!result){
+                    //poster = 'http://cinematic.ge/uploads/posts/2014-04/1398024527_no-poster.jpg';
+                    poster = '/public/images/' + movie.title + '.jpg';
+                } else {
+                  poster = 'https://image.tmdb.org/t/p/original' + result.poster_path;  
+                }
+                //console.log(poster);
+                return res.send( {
+                    movie: movie,
+                    Plot: data.Plot,
+                    Poster: poster,
+                });
+
+            });
+        });
+    });
+};
+
+exports.count = function (req, res) {
+    Movie.count({}, function (err, count) {
+        console.log(count);
+        return res.send({
+            count : count
+        })
+    })
+}
+
+exports.next = function (req, res) {
+    console.log(req.params.index);
+    Movie.findOne().skip(req.params.index).sort({created_at : -1}).exec(function (error, movie) {
+        if(error) return console.log(error);
+       nmovie(movie.title, function (error, data) {
+
+            if(error) return console.log('The error 1 is: ' +error);
+            MovieDB.movieInfo({ id: data.imdbID }, function (err, result) {
+                if(err) console.log('The error 2 is: ' +error);
+                var poster;
+                if (!result){
+                    //poster = 'http://cinematic.ge/uploads/posts/2014-04/1398024527_no-poster.jpg';
+                    poster = '/public/images/' + movie.title + '.jpg';
+                } else {
+                  poster = 'https://image.tmdb.org/t/p/original' + result.poster_path;  
+                }
+                //console.log(poster);
+                return res.send( {
+                    movie: movie,
+                    Plot: data.Plot,
+                    Poster: poster,
+                });
+
+            });
+        });
+    });
+};
+
+
+
 exports.renderDashboard = function (req, res) {
     Movie.find(function (error, movies) {
        if (error) { console.log('There is an error rendering movie list'); }

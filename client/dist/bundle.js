@@ -10,18 +10,42 @@ require('angular-ui-router');
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 _angular2.default.module('stamenoApp', ['ui.router']).config(function ($stateProvider, $urlRouterProvider) {
+    var index = 0;
     $urlRouterProvider.otherwise('/');
     $stateProvider.state('main', {
         url: '/',
         templateUrl: 'views/main.html',
         resolve: {
             movieService: function movieService($http) {
-                return $http.get('/movie');
+                return $http.get('/movie/' + index);
+            },
+            movieCount: function movieCount($http) {
+                return $http.get('/moviecount');
             }
         },
-        controller: function controller(movieService, $location, $state) {
+        controller: function controller(movieService, movieCount, $location, $state, $http) {
+            this.stopNext = true;
+            this.stopPrevious = true;
             this.movie = movieService.data;
+            this.movieCount = movieCount.data.count;
+            console.log('index: ' + index);
+            console.log('count: ' + this.movieCount);
+            if (index == this.movieCount - 1) {
+                this.stopNext = false;
+            }
+
+            if (index == 0) {
+                this.stopPrevious = false;
+            }
             this.refresh = function () {
+                $state.reload();
+            };
+            this.next = function () {
+                index++;
+                $state.reload();
+            };
+            this.previous = function () {
+                index--;
                 $state.reload();
             };
             this.backClass = "bk-bookdefault";

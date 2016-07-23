@@ -13,7 +13,7 @@ var flash = require('connect-flash');
 //require('./config/passport-init');
 
 var routes = require('./routes/index');
-//var users = require('./routes/users');
+var movieCount = require('./routes/movieCount');
 
 var app = express();
 
@@ -41,6 +41,7 @@ app.use(express.static(path.join(__dirname, '/../client')));
 //app.use(passport.session());
 
 app.use('/movie', routes);
+app.use('/moviecount', movieCount);
 var admin = require('sriracha-admin');
 app.use('/admin', admin());
 //app.use('/users', users);

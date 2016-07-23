@@ -48,7 +48,8 @@
 
                 </div>
                 <div class="col-lg-4">
-                    <button type="submit" class="button btn-1 btn-1e" ng-click="movieCtrl.refresh()">What else?</button>
+                    <button ng-show="movieCtrl.stopNext" type="submit" class="button btn-1 btn-1e" ng-click="movieCtrl.next()">Next</button>
+                    <button ng-show="movieCtrl.stopPrevious" type="submit" class="button btn-1 btn-1e" ng-click="movieCtrl.previous()">Previous</button>
 
                 </div>
             </div>
