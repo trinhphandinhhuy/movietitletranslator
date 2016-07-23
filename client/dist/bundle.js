@@ -28,8 +28,6 @@ _angular2.default.module('stamenoApp', ['ui.router']).config(function ($statePro
             this.stopPrevious = true;
             this.movie = movieService.data;
             this.movieCount = movieCount.data.count;
-            console.log('index: ' + index);
-            console.log('count: ' + this.movieCount);
             if (index == this.movieCount - 1) {
                 this.stopNext = false;
             }
@@ -62,11 +60,6 @@ _angular2.default.module('stamenoApp', ['ui.router']).config(function ($statePro
         },
         controllerAs: 'movieCtrl'
     });
-});
-
-_angular2.default.module('stamenoApp').controller('TestController', function () {
-    var vm = this;
-    // vm.test = 'Lan va Diep';
 });
 
 },{"angular":4,"angular-ui-router":2}],2:[function(require,module,exports){

@@ -21,8 +21,6 @@ angular.module('stamenoApp', ['ui.router'])
                     this.stopPrevious = true;
                     this.movie = movieService.data;
                     this.movieCount = movieCount.data.count;
-                    console.log('index: ' + index);
-                    console.log('count: ' + this.movieCount);
                     if(index == this.movieCount - 1)
                     {
                         this.stopNext = false;
@@ -58,9 +56,3 @@ angular.module('stamenoApp', ['ui.router'])
                 controllerAs: 'movieCtrl'
             });
     });
-
-angular.module('stamenoApp')
-    .controller('TestController', function () {
-        var vm = this;
-        // vm.test = 'Lan va Diep';
-    })
