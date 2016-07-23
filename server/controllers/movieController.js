@@ -3,22 +3,22 @@ var User = require('../model/userModel');
 var nmovie = require('node-movie');
 var MovieDB = require('moviedb')('2ffb4d76855be971ac9d322ae367d589');
 
-exports.list = function (req, res) {
+/*exports.list = function (req, res) {
     Movie.findOneRandom(function (error, movie) {
-        if(error) return console.log(error);
+        if (error) return console.log(error);
 
-       nmovie(movie.title, function (error, data) {
-            if(error) return console.log(error);
+        nmovie(movie.title, function (error, data) {
+            if (error) return console.log(error);
             MovieDB.movieInfo({ id: data.imdbID }, function (err, result) {
-                if(err) return console.log(error);
+                if (err) return console.log(error);
                 var poster;
-                if (!result){
+                if (!result) {
                     poster = 'http://cinematic.ge/uploads/posts/2014-04/1398024527_no-poster.jpg';
                 } else {
-                  poster = 'https://image.tmdb.org/t/p/original' + result.poster_path;  
+                    poster = 'https://image.tmdb.org/t/p/original' + result.poster_path;
                 }
-                
-                return res.send( {
+
+                return res.send({
                     movie: movie,
                     Plot: data.Plot,
                     Poster: poster,
@@ -27,7 +27,7 @@ exports.list = function (req, res) {
             });
         });
     });
-};
+};*/
 
 exports.one = function (req, res) {
     console.log();
@@ -91,33 +91,6 @@ exports.next = function (req, res) {
 
             });
         });
-    });
-};
-
-
-
-exports.renderDashboard = function (req, res) {
-    Movie.find(function (error, movies) {
-       if (error) { console.log('There is an error rendering movie list'); }
-       res.render('dashboard', {
-           title: 'Dashboard',
-           movies : movies
-       })
-    });
-};
-
-
-
-exports.createUser = function (req, res) {
-    var entry = new User({
-        username: 'admin',
-        password: 'lanvadiep',
-    });
-
-    entry.save(function (error) {
-        if (error) { console.log('There is an error saving'); }
-        console.log('The user is saved');
-        res.redirect('/');
     });
 };
 

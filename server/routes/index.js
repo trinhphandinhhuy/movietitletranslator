@@ -12,14 +12,5 @@ router.get('/:index', function(req, res, next) {
 });
 
 
-router.get('/dashboard', function(req, res, next) {
-  if(!req.isAuthenticated()){
-        res.redirect('/login');
-    } else {
-      return movieController.renderDashboard(req, res);
-    }
-     
-});
-
 
 module.exports = router;
