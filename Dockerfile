@@ -1,13 +1,17 @@
-FROM ubuntu:14.04
+FROM node:latest
 
 MAINTAINER HuyTrinh trinhphandinhhuy@gmail.com
 
-RUN apt-get update && apt-get install -y nodejs npm
+RUN mkdir -p /usr/src/app
 
-COPY . /src
+WORKDIR /usr/src/app  
 
-RUN cd /src; npm install
+COPY . /usr/src/app
+
+RUN cd /usr/src/app
+
+RUN npm install
 
 EXPOSE 3001
 
-CMD cd /src/server/bin && nodejs ./www
+CMD ["node", "/server/bin/www"]
