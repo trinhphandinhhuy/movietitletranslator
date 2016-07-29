@@ -1,59 +1,35 @@
 <div class="container">
     <div class="row">
-
-        <ul id="bk-list" class="bk-list col-lg-5">
-            <li>
-                <div class="bk-book book-1 bk-bookback" ng-class="movieCtrl.backClass" ng-click="movieCtrl.toggleView()">
-                    <div class="bk-front">
-                        <div class="bk-cover-back"></div>
-                        <div class="bk-cover">
-                            <img ng-src="{{movieCtrl.movie.Poster}}" alt="">
-                        </div>
-                    </div>
-                    <div class="bk-back">
-                        <p>
-                            {{ movieCtrl.movie.movie.translation}}
-                        </p>
-                    </div>
-                    <div class="bk-right"></div>
-                    <div class="bk-left">
-                    </div>
-
-                    <div class="bk-top"></div>
-                    <div class="bk-bottom"></div>
+        <div class="col-lg-2">
+            <button ng-show="movieCtrl.stopPrevious" type="submit" class="button btn-1 btn-1e" ng-click="movieCtrl.previous()">Previous</button>
+        </div>
+        <div class="bk-book book-1 bk-bookback col-lg-8" ng-class="movieCtrl.backClass" ng-click="movieCtrl.toggleView()">
+            <div class="bk-front">
+                <div class="bk-cover">
+                    <img ng-src="{{movieCtrl.movie.Poster}}" alt="">
                 </div>
-                <br>
-            </li>
-        </ul>
-
-
-        <div class="col-lg-7 mv-info">
-            <div class="row">
-                <div class="col-lg-8">
-                    <h1>
-                        {{ movieCtrl.movie.movie.title }}
-                    </h1>
-                    <span ng-show="movieCtrl.movie.movie.soundtrack">
+            </div>
+            <div class="bk-back">
+                <p>{{ movieCtrl.movie.movie.title }}</p>
+                <p>
+                    {{ movieCtrl.movie.movie.translation}}
+                </p>
+                <span ng-show="movieCtrl.movie.movie.soundtrack">
                         <h2>Sound Track</h2>
                         <audio controls>
                             <source src="{{movieCtrl.movie.movie.soundtrack}}" type="audio/mp3">
                         </audio>
                     </span>
 
-                    <span ng-show="movieCtrl.movie.movie.quotes">
+                <span ng-show="movieCtrl.movie.movie.quotes">
                         <h2>Quotes</h2>
                         <blockquote>{{movieCtrl.movie.movie.quotes}}</blockquote>
                     </span>
 
-
-                </div>
-                <div class="col-lg-4">
-                    <button ng-show="movieCtrl.stopNext" type="submit" class="button btn-1 btn-1e" ng-click="movieCtrl.next()">Next</button>
-                    <button ng-show="movieCtrl.stopPrevious" type="submit" class="button btn-1 btn-1e" ng-click="movieCtrl.previous()">Previous</button>
-
-                </div>
             </div>
-
+        </div>
+        <div class="col-lg-2">
+            <button ng-show="movieCtrl.stopNext" type="submit" class="button btn-1 btn-1e" ng-click="movieCtrl.next()">Next</button>
         </div>
     </div>
 </div>

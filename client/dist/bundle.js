@@ -14,7 +14,7 @@ _angular2.default.module('stamenoApp', ['ui.router']).config(function ($statePro
     $urlRouterProvider.otherwise('/');
     $stateProvider.state('main', {
         url: '/',
-        templateUrl: 'views/main.html',
+        templateUrl: 'views/test.html',
         resolve: {
             movieService: function movieService($http) {
                 return $http.get('/movie/' + index);
@@ -46,14 +46,14 @@ _angular2.default.module('stamenoApp', ['ui.router']).config(function ($statePro
                 index--;
                 $state.reload();
             };
-            this.backClass = "bk-bookdefault";
+            this.backClass = "";
             var val = 'default';
             this.toggleView = function () {
                 if (val == 'default') {
-                    this.backClass = "bk-viewback";
+                    this.backClass = "flipped";
                     val = 'back';
                 } else {
-                    this.backClass = "bk-bookdefault";
+                    this.backClass = "";
                     val = 'default';
                 }
             };

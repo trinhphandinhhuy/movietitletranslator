@@ -1,0 +1,10 @@
+language: node_js
+
+sudo: false
+
+node_js:
+  - "4.2.1"
+
+after_success:
+  - |
+        curl -H "Content-Type: application/json" --data '{"build": true}' -X POST https://registry.hub.docker.com/u/huytrinh/movietitletranslator/trigger/a52ca514-594b-4a91-b0a0-1019b6c41899/

@@ -24,61 +24,32 @@ src: url("../Cousine-Bold.ttf") format("opentype");
   font-family: Cousine-Bold, serif;
 }
 
-.bk-list {
-	list-style: none;
-	position: relative;
-  margin-top: 50px;
-}
-
-.bk-list li {
-	position: relative;
-	width: 300px;	
-	z-index: 1;
-	margin-left: auto;
-  margin-right: auto;
-	-webkit-perspective: 1800px;
-	perspective: 1800px;
-}
-
-
-.bk-list li .bk-book {
-	position: relative;
-	width: 100%;
-	height: 100%;
+.bk-book {
 	-webkit-transform-style: preserve-3d;
 	transform-style: preserve-3d;
-	-webkit-transition: -webkit-transform .5s;
-	transition: transform .5s;
+	-webkit-transition: -webkit-transform .1s;
+	transition: transform .1s;
 }
 
-.bk-list li .bk-book.bk-bookdefault:hover {
-	-webkit-transform: rotate3d(0,1,0,25deg);
-	transform: rotate3d(0,1,0,25deg);
+#card:hover {
+
 	cursor: pointer;
 }
-.bk-list li .bk-book.bk-viewback:hover {
+.bk-book.bk-viewback:hover {
 	cursor: pointer;
 }
 
-.bk-list li .bk-book > div,
-.bk-list li .bk-front > div {
+.bk-book > div,
+.bk-front > div {
 	display: block;
 	position: absolute;
 }
 
-.bk-list li .bk-front {
-	-webkit-transform-style: preserve-3d;
-	transform-style: preserve-3d;
-	-webkit-transform-origin: 0% 50%;
-	transform-origin: 0% 50%;
-	-webkit-transition: -webkit-transform .5s;
-	transition: transform .5s;
-	-webkit-transform: translate3d(0,0,20px);
-	transform: translate3d(0,0,20px);
+.bk-front {
 	z-index: 10;
 }
 
-.bk-list li .bk-front > div {
+.bk-front > div {
 	z-index: 1;
 	-webkit-backface-visibility: hidden;
 	backface-visibility: hidden;
@@ -86,69 +57,9 @@ src: url("../Cousine-Bold.ttf") format("opentype");
 	transform-style: preserve-3d;
 }
 
-
-.bk-list li .bk-front,
-.bk-list li .bk-back,
-.bk-list li .bk-front > div {
-	width: 300px;
-	height: 450px;
-}
-
-.bk-list li .bk-left,
-.bk-list li .bk-right {
-	width: 40px;
-	left: -20px;
-}
-
-.bk-list li .bk-top,
-.bk-list li .bk-bottom {
-	width: 300px;
-	height: 40px;
-	top: -15px;
-	-webkit-backface-visibility: hidden;
-	backface-visibility: hidden;
-}
-
-.bk-list li .bk-back {
-	-webkit-transform: rotate3d(0,1,0,-180deg) translate3d(0,0,20px);
-	transform: rotate3d(0,1,0,-180deg) translate3d(0,0,20px);
+.bk-back {
 	box-shadow: 10px 10px 30px rgba(0,0,0,0.3);
 	border-radius: 2px;
-}
-
-.bk-list li .bk-cover-back {
-	background-color: #000;
-	-webkit-transform: rotate3d(0,1,0,-179deg);
-	transform: rotate3d(0,1,0,-179deg);
-}
-
-.bk-list li .bk-right {
-	height: 450px;
-	-webkit-transform: rotate3d(0,1,0,90deg) translate3d(0,0,300px);
-	-moz-transform: rotate3d(0,1,0,90deg) translate3d(0,0,300px);
-	transform: rotate3d(0,1,0,90deg) translate3d(0,0,300px);
-	-webkit-backface-visibility: hidden;
-	backface-visibility: hidden;
-}
-
-.bk-list li .bk-left {
-	height: 450px;
-	-webkit-transform: rotate3d(0,1,0,-90deg);
-	transform: rotate3d(0,1,0,-90deg);
-}
-
-.bk-list li .bk-top {
-	-webkit-transform: rotate3d(1,0,0,90deg);
-	transform: rotate3d(1,0,0,90deg);
-}
-
-.bk-list li .bk-bottom {
-	-webkit-transform: rotate3d(1,0,0,-90deg) translate3d(0,0,390px);
-	transform: rotate3d(1,0,0,-90deg) translate3d(0,0,390px);
-}
-
-.mv-info {
-  margin-top: 50px;
 }
 
 @media only screen and (max-width : 480px) {
@@ -164,17 +75,16 @@ src: url("../Cousine-Bold.ttf") format("opentype");
 	color: inherit;
 	background: none;
 	cursor: pointer;
-	padding: 25px 80px;
 	display: inline-block;
 	margin: 15px 30px;
 	text-transform: uppercase;
 	letter-spacing: 1px;
-	font-weight: 700;
 	outline: none;
 	position: relative;
 	-webkit-transition: all 0.3s;
 	-moz-transition: all 0.3s;
 	transition: all 0.3s;
+	padding: 20px 20px;
 }
 
 .btn:after {
@@ -190,117 +100,36 @@ src: url("../Cousine-Bold.ttf") format("opentype");
 	color: #000;
 }
 
-/* Button 1e */
-.btn-1e:hover,
-.btn-1e:active {
+.btn-1:hover,
+.btn-1:active {
 	color: #fff;
 	background: #000;
 }
 
-/* Transform classes */
-
-.bk-list li .bk-book.bk-viewback {
-	-webkit-transform: translate3d(0,0,0px) rotate3d(0,1,0,180deg);
-	transform: translate3d(0,0,0px) rotate3d(0,1,0,180deg);
-}
-
 /* Main colors and content */
 
-.bk-list li .bk-page,
-.bk-list li .bk-right,
-.bk-list li .bk-top,
-.bk-list li .bk-bottom {
-	background-color: #000;
-}
-
-.bk-list li .bk-front > div {
+.bk-front > div {
 	border-radius: 0 3px 3px 0;
 	box-shadow: 
 		inset 4px 0 10px rgba(0, 0, 0, 0.1);
 }
 
-.bk-list li .bk-front:after {
-	content: '';
-	position: absolute;
-	top: 1px;
-	bottom: 1px;
-	left: -1px;
-	width: 1px;
-}
-
-
-.bk-list li .bk-back:after {
-	left: auto;
-	right: 10px;
-}
-
-
-
 /* Individual style & artwork */
 
-/* Book 1 */
-.book-1 .bk-front > div,
-.book-1 .bk-back,
-.book-1 .bk-left,
-.book-1 .bk-front:after {
-	background-color: #000;
-}
 
-.book-1 .bk-cover {
-	background-position: 10px 40px;
-}
-.book-1 .bk-cover img{
+.bk-cover img{
 	width: 100%;
+	border: 1px solid black;
 }
 
-.book-1 .bk-cover h2 {
-	position: absolute;
-	bottom: 0;
-	right: 0;
-	left: 0;
-	padding: 30px;
-	background: rgba(255,255,255,0.2);
-	color: #fff;
-	text-shadow: 0 -1px 0 rgba(0,0,0,0.1);
-}
-
-.book-1 .bk-cover h2 span:first-child,
-.book-1 .bk-left h2 span:first-child {
-	text-transform: uppercase;
-	font-weight: 400;
-	font-size: 13px;
-	padding-right: 20px;
-}
-
-.book-1 .bk-cover h2 span:first-child {
-	display: block;
-}
-
-.book-1 .bk-cover h2 span:last-child,
-.book-1 .bk-left h2 span:last-child {
-	font-family: "Big Caslon", "Book Antiqua", "Palatino Linotype", Georgia, serif;
-} 
-
-.book-1 .bk-content p {
-	font-family: Georgia, Times, "Times New Roman", serif;
-}
-
-.book-1 .bk-left h2 {
-	color: #fff;
-	font-size: 15px;
-	line-height: 40px;
-	padding-right: 10px;
-	text-align: right;
-}
-
-.book-1 .bk-back p {
-	color: #fff;
+.bk-back p {
+	color: #000;
 	font-size: 16px;
-	padding: 40px;
-	text-align: center;
 	font-weight: 700;
 	font-family: Cousine-Bold;
 	overflow: hidden;
+	padding-top: 10px;
+	margin-left: 20px;
 }
 
 
@@ -320,6 +149,7 @@ src: url("../Cousine-Bold.ttf") format("opentype");
 	display: none;
 }
 
+/* Sticky Footer*/
 html {
   position: relative;
   min-height: 100%;
@@ -340,6 +170,7 @@ body {
 .footer p {
 	margin-top: 10px;
 }
+/* End Sticky Footer*/
 
 @media only screen and (max-width : 480px) {
   .footer, .github-corner {
@@ -348,43 +179,43 @@ body {
 }
 
 @media only screen and (max-width: 1366px) {
-	.bk-list li .bk-front,
-	.bk-list li .bk-back,
-	.bk-list li .bk-front > div {
+	.bk-front,
+	.bk-back,
+	.bk-front > div {
 	width: 250px;
-	height: 400px;
+	height: 370px;
+}
 }
 
-.bk-list li {
-	position: relative;
-	width: 250px;	
-	z-index: 1;
-	margin-left: auto;
-  margin-right: auto;
-	-webkit-perspective: 1800px;
-	perspective: 1800px;
+.card-wrapper { 
+  width: 400px;
+  height: 600px;
+  position: relative;
+  perspective: 1800px;
 }
 
-.bk-list li .bk-top,
-.bk-list li .bk-bottom {
-	width: 250px;
-	height: 40px;
-	top: -15px;
-	-webkit-backface-visibility: hidden;
-	backface-visibility: hidden;
+#card {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  transform-style: preserve-3d;
+  transition: transform 1s;
 }
 
-.bk-list li .bk-right {
-	height: 400px;
-	-webkit-transform: rotate3d(0,1,0,90deg) translate3d(0,0,250px);
-	-moz-transform: rotate3d(0,1,0,90deg) translate3d(0,0,250px);
-	transform: rotate3d(0,1,0,90deg) translate3d(0,0,250px);
-	-webkit-backface-visibility: hidden;
-	backface-visibility: hidden;
+#card div {
+  margin: 0;
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
 }
 
-.bk-list li .bk-left {
-	height: 400px;
+
+#card .back {
+  transform: rotateY( 180deg );
 }
 
+#card.flipped {
+  transform: rotateY( 180deg );
 }

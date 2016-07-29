@@ -1,1 +1,42 @@
-<h1>Testing Test</h1>
+<div class="container">
+    <div class="row">
+        <div class="col-lg-2">
+            <button ng-show="movieCtrl.stopPrevious" type="submit" class="button btn-1 btn-1e" ng-click="movieCtrl.previous()">Previous</button>
+        </div>
+        <div class="col-lg-8">
+            <div class="card-wrapper center-block" >
+                <div id="card" ng-class="movieCtrl.backClass" ng-click="movieCtrl.toggleView()" class="bk-book">
+                    <div class="bk-front front">
+                        <div class="bk-cover">
+                            <img ng-src="{{movieCtrl.movie.Poster}}" alt="">
+                        </div>
+                    </div>
+                    <div class="bk-back back">
+                        <h2 class="text-center">{{ movieCtrl.movie.movie.title }}</h2>
+                        <h2 class="text-center">
+                            {{ movieCtrl.movie.movie.translation}}
+                        </h2>
+                        <br>
+                        <span ng-show="!movieCtrl.movie.movie.soundtrack">
+                        <h3>Sound Track</h3>
+                        <audio controls>
+                            <source src="{{movieCtrl.movie.movie.soundtrack}}" type="audio/mp3">
+                        </audio>
+                        </span>
+                        <br>
+                        <span ng-show="movieCtrl.movie.movie.quotes">
+                        <h3>Quotes</h3>
+                        <blockquote>{{movieCtrl.movie.movie.quotes}}</blockquote>
+                        </span>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="col-lg-2">
+            <button ng-show="movieCtrl.stopNext" type="submit" class="button btn-1 btn-1e" ng-click="movieCtrl.next()">Next</button>
+        </div>
+    </div>
+</div>

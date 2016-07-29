@@ -7,7 +7,7 @@ angular.module('stamenoApp', ['ui.router'])
         $stateProvider
             .state('main', {
                 url: '/',
-                templateUrl: 'views/main.html',
+                templateUrl: 'views/test.html',
                 resolve: {
                     movieService: function ($http) {
                         return $http.get('/movie/' + index);
@@ -40,14 +40,14 @@ angular.module('stamenoApp', ['ui.router'])
                         index--;
                         $state.reload();
                     }
-                    this.backClass = "bk-bookdefault";
+                    this.backClass = "";
                     var val = 'default';
                     this.toggleView = function () {
                         if (val == 'default') {
-                            this.backClass = "bk-viewback";
+                            this.backClass = "flipped";
                             val = 'back';
                         } else {
-                            this.backClass = "bk-bookdefault";
+                            this.backClass = "";
                             val = 'default';
                         }
 
