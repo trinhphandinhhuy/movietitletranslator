@@ -7,4 +7,4 @@ node_js:
 
 after_success:
   - |
-        curl -H "Content-Type: application/json" --data '{"build": true}' -X POST https://registry.hub.docker.com/u/huytrinh/movietitletranslator/trigger/$DOCKER_HUB_TOKEN/
+        curl -H "Content-Type: application/json" --data '{"build": true}' -X POST https://registry.hub.docker.com/u/huytrinh/movietitletranslator/trigger/DOCKER_HUB_TRIGGER/
