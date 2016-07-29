@@ -10,4 +10,4 @@ RUN cd /src; npm install
 
 EXPOSE 3001
 
-CMD cd /src && nodejs ./index.js
+CMD cd /src/server/bin && nodejs ./www
