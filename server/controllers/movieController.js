@@ -3,31 +3,6 @@ var User = require('../model/userModel');
 var nmovie = require('node-movie');
 var MovieDB = require('moviedb')('2ffb4d76855be971ac9d322ae367d589');
 
-/*exports.list = function (req, res) {
-    Movie.findOneRandom(function (error, movie) {
-        if (error) return console.log(error);
-
-        nmovie(movie.title, function (error, data) {
-            if (error) return console.log(error);
-            MovieDB.movieInfo({ id: data.imdbID }, function (err, result) {
-                if (err) return console.log(error);
-                var poster;
-                if (!result) {
-                    poster = 'http://cinematic.ge/uploads/posts/2014-04/1398024527_no-poster.jpg';
-                } else {
-                    poster = 'https://image.tmdb.org/t/p/original' + result.poster_path;
-                }
-
-                return res.send({
-                    movie: movie,
-                    Plot: data.Plot,
-                    Poster: poster,
-                });
-
-            });
-        });
-    });
-};*/
 
 exports.one = function (req, res) {
     console.log();
@@ -59,7 +34,7 @@ exports.one = function (req, res) {
 
 exports.count = function (req, res) {
     Movie.count({}, function (err, count) {
-        console.log(count);
+        console.log('There are ' + count + ' movies in the database.');
         return res.send({
             count : count
         })
@@ -67,8 +42,8 @@ exports.count = function (req, res) {
 }
 
 exports.next = function (req, res) {
-    console.log(req.params.index);
-    Movie.findOne().skip(req.params.index).sort({created_at : -1}).exec(function (error, movie) {
+    console.log('You are requesting the movie index of ' + req.params.index);
+    Movie.findOne().skip(Number(req.params.index)).sort({created_at : -1}).exec(function (error, movie) {
         if(error) return console.log(error);
        nmovie(movie.title, function (error, data) {
 
@@ -82,7 +57,7 @@ exports.next = function (req, res) {
                 } else {
                   poster = 'https://image.tmdb.org/t/p/original' + result.poster_path;  
                 }
-                //console.log(poster);
+
                 return res.send( {
                     movie: movie,
                     Plot: data.Plot,

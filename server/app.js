@@ -17,6 +17,7 @@ var movieCount = require('./routes/movieCount');
 
 var app = express();
 
+//Connect to database
 var dbUrl = require('./config/config');
 mongoose.connect(dbUrl);
 
@@ -26,6 +27,7 @@ app.set('view engine', 'ejs');
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
+
 app.use(flash());
 app.use(logger('dev'));
 app.use(bodyParser.json());
@@ -42,8 +44,11 @@ app.use(express.static(path.join(__dirname, '/../client')));
 
 app.use('/movie', routes);
 app.use('/moviecount', movieCount);
+
+//Using sriracha to manage database
 var admin = require('sriracha-admin');
 app.use('/admin', admin());
+
 //app.use('/users', users);
 
 /*var authRouter = require('./controllers/auth');
